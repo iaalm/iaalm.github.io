@@ -1,0 +1,57 @@
+---
+layout: post
+status: publish
+published: true
+title: 关于torch的threads线程池
+author:
+  display_name: iaalm
+  login: iaalm
+  email: iaalmsimon@gmail.com
+  url: ''
+author_login: iaalm
+author_email: iaalmsimon@gmail.com
+wordpress_id: 43
+wordpress_url: http://iaalm.cn/?p=43
+date: '2016-05-24 15:36:52 +0000'
+date_gmt: '2016-05-24 07:36:52 +0000'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>torch中（也许是lua？）有一个自带的线程池threads，看到很多人在用，但是这个东西的工作方式还是让我纠结了一下的。</p>
+<p>这个线程池通过addjob方法来增加任务，addjob除了自身外接受两个参数，一个是任务函数，一个是任务函数结束后的回调函数。这两个函数实际上只有任务函数是工作在线程池中的，而回调函数是串行执行的。</p>
+<p>刚开始我以为各个回调函数之间是完全并行执行的，实际上可以理解为，在我们本身定义的线程池之外，还存在一个回调函数专用的线程池，所有回调线程都会放到这个线程池中来执行。</p>
+<p>举例说明</p>
+<p>local Threads = <b>require</b> 'threads'</p>
+<p>local <b>function</b> in_thread<b>(</b>idx<b>)</b></p>
+<p><b>print</b><b>(</b>idx<b>)</b></p>
+<p>return idx</p>
+<p><b>end</b></p>
+<p>local <b>function</b> after_thread<b>(</b>data<b>)</b></p>
+<p><b>print</b><b>(</b>'c@',data[1],data[2]<b>)</b></p>
+<p>--&nbsp; &nbsp; &nbsp; sys.sleep(1)</p>
+<p><b>print</b><b>(</b>'d',data[2]<b>)</b></p>
+<p><b>end</b></p>
+<p>tp = Threads<b>(</b>2,<b>function</b> <b>()</b> <b>require</b> 'sys' <b>end</b><b>)</b></p>
+<p>for i=1,6 do</p>
+<p>tp:addjob<b>(</b><b>function</b> <b>()</b> <b>print</b><b>(</b>'a',__threadid,i<b>)</b>sys.sleep<b>(</b>1<b>)</b> return <b>{</b>__threadid,i<b>}</b> <b>end</b>,after_thread<b>)</b></p>
+<p>end</p>
+<p>即任务函数执行1秒,回调函数不耗时，执行总时间大约3秒</p>
+<p>而</p>
+<p>local Threads =&nbsp;<b>require</b>&nbsp;'threads'</p>
+<p>local&nbsp;<b>function</b>&nbsp;in_thread<b>(</b>idx<b>)</b></p>
+<p><b>print</b><b>(</b>idx<b>)</b></p>
+<p>return idx</p>
+<p><b>end</b></p>
+<p>local&nbsp;<b>function</b>&nbsp;after_thread<b>(</b>data<b>)</b></p>
+<p><b>print</b><b>(</b>'c@',data[1],data[2]<b>)</b></p>
+<p>sys.sleep(1)</p>
+<p><b>print</b><b>(</b>'d',data[2]<b>)</b></p>
+<p><b>end</b></p>
+<p>tp = Threads<b>(</b>2,<b>function</b>&nbsp;<b>()</b>&nbsp;<b>require</b>&nbsp;'sys'&nbsp;<b>end</b><b>)</b></p>
+<p>for i=1,6 do</p>
+<p>tp:addjob<b>(</b><b>function</b>&nbsp;<b>()</b>&nbsp;<b>print</b><b>(</b>'a',__threadid,i<b>)</b>&nbsp;return&nbsp;<b>{</b>__threadid,i<b>}</b>&nbsp;<b>end</b>,after_thread<b>)</b></p>
+<p>end</p>
+<p>即回调函数耗时一秒，任务函数不耗时，执行时间6秒。</p>
+<p>也就是说，可以保证回调函数是被串行执行的，不必担心一致性问题。</p>

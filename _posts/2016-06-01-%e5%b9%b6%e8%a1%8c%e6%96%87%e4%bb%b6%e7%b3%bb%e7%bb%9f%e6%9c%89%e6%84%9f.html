@@ -1,0 +1,23 @@
+---
+layout: post
+status: publish
+published: true
+title: 并行文件系统有感
+author:
+  display_name: iaalm
+  login: iaalm
+  email: iaalmsimon@gmail.com
+  url: ''
+author_login: iaalm
+author_email: iaalmsimon@gmail.com
+wordpress_id: 41
+wordpress_url: http://iaalm.cn/?p=41
+date: '2016-06-01 16:18:21 +0000'
+date_gmt: '2016-06-01 08:18:21 +0000'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>最近开始做video caption，因为所有的视频在预处理的过程中都会转化成一帧一帧的图片，所以对硬盘存储和读写的压力都非常大，而且因为一些原因，经常需要在不同的机器上训练网络，数据迁移的代价非常大。以目前的一个数据集为例，单个数据集超过500G，移动一次数据就需要一个多小时，实在是非常心酸的一件事，所以想到使用并行文件系统。</p>
+<p>对我来说，并行文件系统的选择有ceph，glusterfs，luster。luster因为部署实在比较复杂，不适合我这样的非正规军，暂时pass。刚开始使用glusterfs</p>

@@ -1,0 +1,25 @@
+---
+layout: post
+status: publish
+published: true
+title: ipython zmq通信简述
+author:
+  display_name: iaalm
+  login: iaalm
+  email: iaalmsimon@gmail.com
+  url: ''
+author_login: iaalm
+author_email: iaalmsimon@gmail.com
+wordpress_id: 26
+wordpress_url: http://iaalm.tk/?p=26
+date: '2016-01-29 18:29:34 +0000'
+date_gmt: '2016-01-29 10:29:34 +0000'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>最近脑洞大开，想在ipython上二次开发一个项目，花了点时间研究了下ipython的一些结构</p>
+<p>ipython比较坑爹一点是，相应的文档真的很少，很不完整。理解结构基本靠看代码。。。。</p>
+<p>主体上ipython（主要研究notebook）包括一个kernel manager 和若干kernel，kernel可以不仅是python，也可以是别的语言，现在notebook这部分已经独立出来成为一个叫做jupyter的项目。与kernel的通信主要依靠zeromq，相应的连接参数一般从配置文件获得。</p>
+<p>前后端之间的通信被定义为4条channel:shell,iopub,stdin,hb。这四条通道中，shell负责向后段传输命令，iopub负责返回结果，stdin负责吧前台的标准输入传输到后台（主要是实时的键盘输入），hb则是前后端之间的心跳。</p>

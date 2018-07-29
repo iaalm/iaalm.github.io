@@ -1,0 +1,37 @@
+---
+layout: post
+status: publish
+published: true
+title: ASMK
+author:
+  display_name: iaalm
+  login: iaalm
+  email: iaalmsimon@gmail.com
+  url: ''
+author_login: iaalm
+author_email: iaalmsimon@gmail.com
+wordpress_id: 31
+wordpress_url: http://iaalm.tk/?p=31
+date: '2016-01-30 10:57:05 +0000'
+date_gmt: '2016-01-30 02:57:05 +0000'
+categories:
+- Computer Vision
+- Academic Notes
+tags: []
+comments: []
+---
+<p>今天开始看《To aggregate or not to aggregate: Selective match kernels for image search&nbsp;》，俗称asmk</p>
+<p>文章开始形式化得描述了一下BoF。对于其中的距离，余弦是最简单的形式，然后是汉明嵌入，VLAD，</p>
+<div title="Page 3">
+<div>
+<div>
+<p>Burstiness ，主要是为了引出他的方法。</p>
+<p>在两张图片的每一个cell中的特征进行相似性比较之前，先对每一张图的每一个cell中的特征进行一次聚合操作，聚合为更少的特征后，进行相似性比较。</p>
+<p>然后是selective match model</p>
+<p>asmk就是aggress的SMK</p>
+<p>SMK的selective体现在其使用的在非线性选择函数上，对于过于低的匹配，直接视作0，避免大量cell相似度叠加形成的误差。</p>
+<p>利用VLAD类似的方法，把与每个cell中的词与中心点之间的差加和，以这个和（l2正则化后）作为该cell的特征。目的上应该是为了在一个cell中表现出其自身的偏向，一定程度上弥补word在cell中分布不同产生的偏差，另外就是起到burst的功能。其实相比burst对于标准smk的提升，asmk的提升并不显著。</p>
+<p>不过关于VLAD与ASMK之间的差别，还是有电不明确的，回头再去看一下VLAD。</p>
+</div>
+</div>
+</div>
