@@ -1,0 +1,28 @@
+# Site settings
+title:          Iaalm's Blog
+description:    "Minimal Jekyll theme for storytellers"
+url:            "https://iaalm.cn"
+
+# Author
+author:
+  name:         iaalm
+  url:          https://iaalm.cn
+  email:        iaalmsimon@gmail.com
+
+# Build settings
+markdown:       kramdown
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
+
+# Gems
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  # - jemoji #Uncomment this to allow emoji in your post
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
