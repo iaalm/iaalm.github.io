@@ -1,15 +1,19 @@
 ---
 layout: post
 title: "About"
-author: "Chester"
+author: "Iaalm"
 permalink: /about/
 ---
 
-A friend of mine writes short stories. One sunny day, I asked if he wanted a website to showcase his works and he agreed. I decided to use GitHub Pages to host his site. That way he wouldn't have to buy a domain and a server.
+I'm *Kaisheng Xu*. I'm a software engineer in Microsoft now. My research interests focus on image captioning and image retrieval.
 
-While doing some research up on GitHub Pages, I accidentally chanced upon this _simple, blog-aware, static site generator_ called [Jekyll](https://jekyllrb.com/) which works really well with GitHub Pages. I figured it would do just fine for my friend and I set about searching for a pretty theme. I wanted a theme with a _book-ish_ vibe. Unfortunately, most of the themes were too modern. Eventually, I caved and begun working on my own theme. With the help of [Poole](https://github.com/poole/poole), the Jekyll Butler, I was able to build **Tale**.
+## Publication
+Hanzhang Wang, Hanli Wang, *Kaisheng Xu*, "Categorizing Concepts with Basic Level for Vision-to-Language", IEEE conference on Computer Vision and Pattern Recognition (CVPR), 2018
+*Kaisheng Xu*, Hanli Wang, Pengjie Tang, "Image Caption with Deep LSTM based on Sequential Residual", IEEE International Conference on Multimedia and Expo (ICME), 2017
+Pengjie Tang, Hanli Wang, Hanzhang Wang, *Kaisheng Xu*, "Richer Semantic Visual and Language Representation for Video Captioning", ACM Multimedia, 2018
 
-## Contribute
-Feel free to create an issue or make a pull request on [GitHub](https://github.com/chesterhow/tale).
+## Contact
+[GitHub](https://github.com/iaalm).
+[Linkedin](https://www.linkedin.com/in/kaisheng-xu-52bb2080/).
 
 Thanks for reading!
