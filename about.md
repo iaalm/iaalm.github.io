@@ -13,7 +13,8 @@ Hanzhang Wang, Hanli Wang, *Kaisheng Xu*, "Categorizing Concepts with Basic Leve
 Pengjie Tang, Hanli Wang, Hanzhang Wang, *Kaisheng Xu*, "Richer Semantic Visual and Language Representation for Video Captioning", ACM Multimedia, 2018
 
 ## Contact
-[GitHub](https://github.com/iaalm).
-[Linkedin](https://www.linkedin.com/in/kaisheng-xu-52bb2080/).
+[GitHub](https://github.com/iaalm)
+
+[Linkedin](https://www.linkedin.com/in/kaisheng-xu-52bb2080/)
 
 Thanks for reading!
