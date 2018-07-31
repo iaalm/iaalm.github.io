@@ -5,7 +5,7 @@ author: "Iaalm"
 permalink: /about/
 ---
 
-I'm *Kaisheng Xu*. I'm a software engineer in Microsoft now. My research interests focus on image captioning and image retrieval.
+I'm *Kaisheng Xu*. I'm currently a software engineer in Microsoft. My research interests focus on image captioning and image retrieval.
 
 ## Publication
 Hanzhang Wang, Hanli Wang, *Kaisheng Xu*, "Categorizing Concepts with Basic Level for Vision-to-Language", IEEE conference on Computer Vision and Pattern Recognition (CVPR), 2018

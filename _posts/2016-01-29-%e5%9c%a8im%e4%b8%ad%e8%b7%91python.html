@@ -3,21 +3,9 @@ layout: post
 status: publish
 published: true
 title: 在IM中跑Python
-author:
-  display_name: iaalm
-  login: iaalm
-  email: iaalmsimon@gmail.com
-  url: ''
-author_login: iaalm
-author_email: iaalmsimon@gmail.com
-wordpress_id: 29
-wordpress_url: http://iaalm.tk/?p=29
+author: iaalm
 date: '2016-01-29 18:46:30 +0000'
 date_gmt: '2016-01-29 10:46:30 +0000'
-categories:
-- Uncategorized
-tags: []
-comments: []
 ---
 <p>最近开的一个脑洞，就是内网的服务器要从外网访问很不方便（虽然我现在已经买了服务器用ssh转发解决了），所以希望能够内网的一些服务通过聊天窗口的形式暴露出来，有点类似github的hubot的那种。然后我个人又是非常喜欢ipython（python的一个环境，强烈推荐），就萌生了通过IM把内网的ipython环境暴露出来的想法。毕竟大部分情况我们也只需要执行一些代码就可以了嘛。在github上找到一个类似的，但不太好用，决定自己搞一个，目前还在很原始的阶段，代码在我的<a href="https://github.com/iaalm/ipython-xmpp">github</a>上。</p>
 <p>主要的想法，跟特定的账户说话，就会执行你发的代码，结果通过消息的形式发还给你。目前已经能处理语句的返回值和stdout，stderr输出，下一步准备加上图片返回和文件传输的支持。欢迎大家试用。</p>

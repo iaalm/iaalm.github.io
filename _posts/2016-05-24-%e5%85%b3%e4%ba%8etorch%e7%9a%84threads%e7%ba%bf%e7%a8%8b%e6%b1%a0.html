@@ -3,21 +3,9 @@ layout: post
 status: publish
 published: true
 title: 关于torch的threads线程池
-author:
-  display_name: iaalm
-  login: iaalm
-  email: iaalmsimon@gmail.com
-  url: ''
-author_login: iaalm
-author_email: iaalmsimon@gmail.com
-wordpress_id: 43
-wordpress_url: http://iaalm.cn/?p=43
+author: iaalm
 date: '2016-05-24 15:36:52 +0000'
 date_gmt: '2016-05-24 07:36:52 +0000'
-categories:
-- Uncategorized
-tags: []
-comments: []
 ---
 <p>torch中（也许是lua？）有一个自带的线程池threads，看到很多人在用，但是这个东西的工作方式还是让我纠结了一下的。</p>
 <p>这个线程池通过addjob方法来增加任务，addjob除了自身外接受两个参数，一个是任务函数，一个是任务函数结束后的回调函数。这两个函数实际上只有任务函数是工作在线程池中的，而回调函数是串行执行的。</p>

@@ -3,21 +3,9 @@ layout: post
 status: publish
 published: true
 title: 实现RNN有感
-author:
-  display_name: iaalm
-  login: iaalm
-  email: iaalmsimon@gmail.com
-  url: ''
-author_login: iaalm
-author_email: iaalmsimon@gmail.com
-wordpress_id: 39
-wordpress_url: http://iaalm.cn/?p=39
+author: iaalm
 date: '2016-04-11 12:22:35 +0000'
 date_gmt: '2016-04-11 04:22:35 +0000'
-categories:
-- Uncategorized
-tags: []
-comments: []
 ---
 <p>最近出于一些奇怪的原因，手动实现了RNN和LSTM，来进行sequence prediction的工作。结果在训练的时候发现，test的结果会很容易开始重复某一个模式，一般的泛化特性很难看到。我很长一段时间都觉得是代码错误，或者训练输入不好。经过很长时间的排查，和与类似代码的比对，终于发现了错误。</p>
 <p>网络的输出使用的是一个softmax的n分类输出，n是字典的大小。在输出的时候，我都是选择了概率最大的词作为输出。而参考别人的代码，则普遍是以softmax输出的概率，在字典中随机选择一个词。</p>
